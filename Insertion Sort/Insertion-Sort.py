@@ -15,14 +15,20 @@ import sys
 #
 
 def insertionSort1(n, arr):
-        current=arr[-1]
-        j=n-1
-        while j>0 and arr[j-1]>=current:
-            arr[j]=arr[j-1]
-            print(' '.join(map(str, arr)))
-            j-=1
-        arr[j]=current
-        print(' '.join(map(str, arr)))
+        
+        current = arr[-1]
+    
+        for index in range(len(arr)-2, -1, -1):
+            if arr[index] > current:
+                arr[index+1] = arr[index]
+                print(*arr)
+            else:
+                arr[index+1] = current
+                print(*arr)
+                break
+        if arr[0] > current:
+            arr[0] = current
+            print(*arr)
 
 if __name__ == '__main__':
     n = int(input().strip())
